@@ -2,60 +2,71 @@
 
 \usepackage{amsmath} 
 \usepackage{txfonts}
-
+\renewcommand\partlabel{\thepartno.}% Default is (\thepartno)
 \title{Reeks-genererende polynomen}
-\author{Timothy van der Valk, TU Delft}
+\author{Timothy van der Valk}
 
 \begin{document}
 \maketitle
 
-Laat $f(x) = c_2 x^2 + c_1 x + c_0$ met $c_0,c_1,c_2 \in \mathbb{R}$. 
-Laat $s_i$ een reeks in $\mathbb{R}$ zijn, bijvoorbeeld $(1, 2, 3, 4)$. Een polynoom $f$ \textit{genereert} de reeks
-$s_i$ als $f(i) = s_i$ voor $0 \leq i \leq n$ met een zekere $n \geq 0$.
-\\
-\\
-De polynoom $f(x) = x^2$ genereert $(0, 1, 4)$ omdat $f(0) = 0, f(1) = 1, f(2) = 4$.
-
 % Vraag 1.
 \begin{questions}
-\question Geef een polynoom die $(1, 2, 3)$ genereert.
 
-\question Geef een polynoom die $(1, 1, 2)$ genereert.
+\question Laat $f(x) = c_2 x^2 + c_1 x + c_0$ met $c_0,c_1,c_2 \in \mathbb{R}$. 
+Laat $s_i \in \mathbb{Z}$ een eindige reeks zijn met $n$ termen. Een polynoom $f$ \textit{genereert}
+deze reeks als $f(i) = s_i$. Dus $f$ geeft een bijectie van een 
+deelverzameling van $\mathbb{Z}$ naar de reeks $s_i$.
 
-\question Geef een polynoom die een willekeurige reeks $(s_1, s_2, s_3)$ genereert.
+Voorbeeld: De polynoom $f(x) = x^2$ genereert $(0, 1, 4)$ omdat $f(0) = 0, f(1) = 1, f(2) = 4$.
 
-\question Geef de matrix $A_3$ zodat $A_3 \cdot \begin{bmatrix} c_0 \\ c_1 \\ c_2 \end{bmatrix} = \begin{bmatrix} f(0) \\ f(1) \\ f(2) \end{bmatrix}.$
+\begin{parts}
+\part Geef polynomen die $(1, 2, 3)$ en $(1, 1, 2)$ genereren.
 
-\question Bereken de inverse van $A_3$. {\it(Hint: zie 1.3)}
+\part Geef een polynoom die de reeks $(s_1, s_2, s_3)$ genereert.
 
-\question Bewijs dat de coefficienten $c_i$ uniek zijn in het genereren van de reeks $s_n$.
+\part Geef de matrix $A_3$ zodat $A_3 \cdot 
+\begin{bmatrix} c_0 \\ c_1 \\ c_2 \end{bmatrix} = 
+\begin{bmatrix} f(0) \\ f(1) \\ f(2) \end{bmatrix}.$
+
+\part Bereken de inverse van $A_3$. {\it(Hint: zie 1b)}
+
+
+\end{parts}
+
+\question Deze vraag gaat over de verzameling van alle reeks-genererende
+polynomen.
+
+\begin{parts}
+\part Bewijs dat de reeks-genererende polynoom $f$ voor de reeks $(s_1, s_2, s_3)$
+uniek is.
+
+\part Geef de verzameling van reeksen $(s_1, s_2, s_3)$ waarvan de genererende
+polynoom $f$ coefficienten heeft in $\mathbb{Z}$.
+
+\part Bereken het aantal reeksen $(s_1, s_2, s_3)$ met $0 \leq s_i < 10$ waarvan
+de generende polynomen $f$ coefficienten hebben in $\mathbb{Z}$.
+
+\end{parts}
+
+
+\question We kunnen reeks-genererende polynomen uitbreiden voor reeksen met
+willkeurige lengte door hogere orde polynomen te gebruiken.
+
+\begin{parts}
+
+\part Geef een formule voor de term $x_{i,j}$ van de matrix $A_n$ waarvoor geldt
+$A_n \cdot
+\begin{bmatrix} c_0 \\ \vdots \\ c_{n-1} \end{bmatrix} = 
+\begin{bmatrix} f(0) \\ \vdots \\ f(n-1) \end{bmatrix}$. {\it(Hint: zie 1c)}
+
+\part Geef een voorbeeld van twee polynomen met verschillende graad die 
+tot zekere hoogte dezelfde reeks genereren. Dus reeks-genererende polynomen zijn
+uniek op graad na.
+
+\part \textbf{[*Taai]} Bewijs dat $A_n$ inverteerbaar is.
+
+\end{parts}
 
 \end{questions}
-
-We hebben nu polynomen gevonden die reeksen van drie getallen genereren. 
-Dit process kan worden uitgebreid voor reeksen met $n$ getallen.
-\\
-\\
-Laat $f_n$ een polynoom met graad $n - 1$ gegeven worden door
-\begin{equation}
-	f_n(x) = \sum_{i=0}^n{c_i x^i} \quad.
-\end{equation}
-
-Met $c_i \in \mathbb{R}$. Laat verder $\underline{x}$ de vector zijn met de coefficienten van $f$ zodat $x_i = c_i$. 
-Laat $\underline{b}$ de vector zijn met de functiewaarden van $f$ met $b_i = f(i)$ voor $0 \leq i \leq n$.
-
-\begin{questions}
-\question Geef een formule voor de matrix $A_n$ waarvoor geldt 
-$A_n \cdot \underline{x} = \underline{b}$. 
-
-De matrices $A_n$ zijn inverteerbaar voor alle $n \geq 1$.
-
-\question {Geef een tegenvoorbeeld die laat zien dat reeks-genererende polynomen met verschillende graad dezelfde reeks kunnen maken tot op zekere hoogte.}
-
-\question Bewijs dat twee reeks-genererende polynomen van dezelfde graad $n$ uniek zijn.\geq 1$.
-
-\question \textbf{[*Lastig]} Bewijs dat $A_n$ inverteerbaar is.
-\end{questions}
-
 
 \end{document}
